@@ -1,6 +1,5 @@
+import { PayButton } from './componets/PayButton';
 import { getPricingCards } from './lib';
-
-const colors = ['bg-blue-900', 'bg-blue-600', 'bg-blue-400'];
 
 export default async function Page() {
   const pricingCards = await getPricingCards();
@@ -21,11 +20,7 @@ export default async function Page() {
         >
           <h3>{nickname}</h3>
           <h4>{(unit_amount ?? 0) / 100}$</h4>
-          <button
-            className={`${colors[i]} rounded-2xl px-2 py-0.5 relative z-20 active:opacity-50 transition-opacity`}
-          >
-            Buy Now
-          </button>
+          <PayButton i={i} priceId={id} />
         </aside>
       ))}
     </section>
