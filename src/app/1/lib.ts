@@ -1,3 +1,4 @@
+import 'server-only';
 import Stripe from 'stripe';
 
 export async function getPricingCards() {
@@ -5,5 +6,5 @@ export async function getPricingCards() {
   if (!secret) throw new Error('Please give me your secret key! 😉');
   const strapi = new Stripe(secret);
   const pricingPlans = await strapi.prices.list();
-  return pricingPlans;
+  return pricingPlans.data;
 }
