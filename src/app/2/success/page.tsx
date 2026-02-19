@@ -9,9 +9,11 @@ export default function Page() {
         className='absolute pointer-events-none w-full h-screen object-cover'
       />
       <h2 className='text-lime-500 p-1.5 bg-[#fff2] border-[0.1vmax] border-white border-solid'>
-        Success! Payment Accepted!
-        <br />
-        <Link href='/' className='text-lime-500 text-center underline mx-auto'>
+        Success! Payment Accepted! &nbsp;
+        <Link
+          href='/'
+          className='text-lime-500  text-center underline '
+        >
           Go to Home
         </Link>
       </h2>
