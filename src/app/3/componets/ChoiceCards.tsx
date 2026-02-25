@@ -3,44 +3,29 @@ import {
   FieldContent,
   FieldDescription,
   FieldLabel,
-  FieldTitle,
-} from "@/components/ui/field"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+  FieldTitle
+} from '@/components/ui/field';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { plans } from '../lib';
 
 export function RadioGroupChoiceCard() {
   return (
-    <RadioGroup defaultValue="plus" className="max-w-sm">
-      <FieldLabel htmlFor="plus-plan">
-        <Field orientation="horizontal">
-          <FieldContent>
-            <FieldTitle>Plus</FieldTitle>
-            <FieldDescription>
-              For individuals and small teams.
-            </FieldDescription>
-          </FieldContent>
-          <RadioGroupItem value="plus" id="plus-plan" />
-        </Field>
-      </FieldLabel>
-      <FieldLabel htmlFor="pro-plan">
-        <Field orientation="horizontal">
-          <FieldContent>
-            <FieldTitle>Pro</FieldTitle>
-            <FieldDescription>For growing businesses.</FieldDescription>
-          </FieldContent>
-          <RadioGroupItem value="pro" id="pro-plan" />
-        </Field>
-      </FieldLabel>
-      <FieldLabel htmlFor="enterprise-plan">
-        <Field orientation="horizontal">
-          <FieldContent>
-            <FieldTitle>Enterprise</FieldTitle>
-            <FieldDescription>
-              For large teams and enterprises.
-            </FieldDescription>
-          </FieldContent>
-          <RadioGroupItem value="enterprise" id="enterprise-plan" />
-        </Field>
-      </FieldLabel>
+    <RadioGroup
+      defaultValue='plus'
+      className='max-w-sm p-4 bg-[#000d] rounded-3xl'
+    >
+      {plans.map(plan => (
+        <FieldLabel key={plan.id} htmlFor={`${plan.id}-plan`}>
+          <Field orientation='horizontal'>
+            <FieldContent>
+              <FieldTitle>{plan.title}</FieldTitle>
+              <FieldDescription>{plan.description}</FieldDescription>
+              <p className='text-sm font-semibold mt-1'>${plan.price}/month</p>
+            </FieldContent>
+            <RadioGroupItem value={plan.id} id={`${plan.id}-plan`} />
+          </Field>
+        </FieldLabel>
+      ))}
     </RadioGroup>
-  )
+  );
 }

@@ -6,3 +6,24 @@ export const PRODUCT_MOCKUP = {
   urlImage: `${BASE_URL}/assets/phone.png`
 };
 
+
+export const plans = [
+  {
+    id: "plus",
+    title: "Plus",
+    description: "For individuals and small teams.",
+    price: 19,
+  },
+  {
+    id: "pro",
+    title: "Pro",
+    description: "For growing businesses.",
+    price: 49,
+  },
+  {
+    id: "enterprise",
+    title: "Enterprise",
+    description: "For large teams and enterprises.",
+    price: 99,
+  },
+];
