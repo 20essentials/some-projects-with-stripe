@@ -1,8 +1,7 @@
 import { BASE_URL } from '@/globalConsts';
 import { type NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { PRODUCT_MOCKUP } from '@/app/2/lib';
-import { dollarsToCents, plans, type Pricing } from '@/app/3/lib';
+import { dollarsToCents, type Pricing } from '@/app/3/lib';
 
 export async function POST(request: NextRequest) {
   const secret = process.env.STRIPE_API_SECRET;
@@ -28,8 +27,8 @@ export async function POST(request: NextRequest) {
         }
       }
     ],
-    success_url: `${BASE_URL}/2/success/`,
-    cancel_url: `${BASE_URL}/2/`
+    success_url: `${BASE_URL}/3/success/`,
+    cancel_url: `${BASE_URL}/3/`
   });
 
   return NextResponse.json({ url }, { status: 200 });
