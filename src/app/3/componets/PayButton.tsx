@@ -2,8 +2,9 @@
 
 import { BASE_URL } from '@/globalConsts';
 import { useRouter } from 'next/navigation';
+import { Pricing } from '../lib';
 
-export function PayButton() {
+export function PayButton({ pricing }: { pricing: Pricing }) {
   const router = useRouter();
 
   async function openCheckoutStripe() {
@@ -11,7 +12,8 @@ export function PayButton() {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
-      }
+      },
+      body: JSON.stringify(pricing)
     });
     const data = await res.json();
     router.push(data.url);

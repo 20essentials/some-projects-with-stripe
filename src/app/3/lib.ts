@@ -6,6 +6,14 @@ export const PRODUCT_MOCKUP = {
   urlImage: `${BASE_URL}/assets/phone.png`
 };
 
+export const dollarsToCents = (num: number) => num * 100;
+
+export type Pricing = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+};
 
 export const plans = [
   {

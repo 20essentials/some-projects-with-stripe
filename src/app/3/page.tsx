@@ -1,5 +1,5 @@
 import { RadioGroupChoiceCard } from './componets/ChoiceCards';
-import { PayButton } from './componets/PayButton';
+
 
 export default async function Page() {
   return (
@@ -11,7 +11,7 @@ export default async function Page() {
       />
 
       <RadioGroupChoiceCard />
-      <PayButton />
+      
     </section>
   );
 }
