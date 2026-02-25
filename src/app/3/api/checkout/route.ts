@@ -1,26 +1,31 @@
 import { BASE_URL } from '@/globalConsts';
-import { NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { PRODUCT_MOCKUP } from '@/app/2/lib';
+import { dollarsToCents, plans, type Pricing } from '@/app/3/lib';
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   const secret = process.env.STRIPE_API_SECRET;
   if (!secret) throw new Error('Please give me your secret key! 😉');
   const stripe = new Stripe(secret);
+  const plan = (await request.json()) as Pricing;
   const { url } = await stripe.checkout.sessions.create({
     mode: 'payment',
     line_items: [
       {
         price_data: {
           product_data: {
-            name: PRODUCT_MOCKUP.name,
-            description: 'Just a random Phone 🐼',
-            images: [PRODUCT_MOCKUP.urlImage]
+            name: plan.title,
+            description: plan.description
           },
           currency: 'usd',
-          unit_amount: PRODUCT_MOCKUP.priceInCents
+          unit_amount: dollarsToCents(plan.price),
         },
-        quantity: 1
+        quantity: 1,
+        metadata: {
+          planId: plan.id
+          /* For example if you want to save it into a Database or something... */
+        }
       }
     ],
     success_url: `${BASE_URL}/2/success/`,
