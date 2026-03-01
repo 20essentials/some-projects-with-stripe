@@ -28,7 +28,7 @@ export const arrayOfProjects: ItemProject[] = [
   },
   {
     href: '/4',
-    nameProject: 'Creating an Stripe Customer',
+    nameProject: 'Creating a Stripe Customer',
     srcImage: '/assets/projects/4.avif'
   }
 ] as const;
