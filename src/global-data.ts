@@ -14,5 +14,6 @@ export const arrayOfProjects: ItemProject[] = [
     nameProject: 'Webhooks',
     realHref:
       'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/3/api/webhook/route.ts'
-  }
+  },
+  { href: '/4', nameProject: 'Creating an Stripe Customer' },
 ] as const;
