@@ -1,11 +1,13 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { UserIcon } from './user-icon';
 import { EmailIcon } from './email-icon';
 import './form.css';
 import { createStripeCustomer } from '../action/create-customer';
 import { CreateStripeCustomerState } from '../types/types';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { SEARCH_PARAMS_KEY } from '@/lib/const';
 
 const INITIAL_STATE: CreateStripeCustomerState = {
   success: null,
@@ -17,6 +19,23 @@ export function Formulario() {
     CreateStripeCustomerState,
     FormData
   >(createStripeCustomer, INITIAL_STATE);
+
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get(SEARCH_PARAMS_KEY.redirectTo);
+  
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!state?.success) return;
+
+    const timeout = setTimeout(() => {
+      if (redirectTo) {
+        router.push(redirectTo);
+      }
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [state?.success, redirectTo, router]);
 
   return (
     <form action={formAction} className='form z-50 relative'>

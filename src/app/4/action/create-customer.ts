@@ -2,6 +2,8 @@
 
 import Stripe from 'stripe';
 import { CreateStripeCustomerState } from '../types/types';
+import { cookies } from 'next/headers';
+import { COOKIE_CONFIG, CUSTOMER } from '@/lib/const';
 
 export const createStripeCustomer = async (
   prevState: CreateStripeCustomerState,
@@ -35,6 +37,9 @@ export const createStripeCustomer = async (
       email,
       description: `Customer created for ${username}`
     });
+
+    const cookieStore = await cookies();
+    cookieStore.set(CUSTOMER.KEY, JSON.stringify(customerCreated), COOKIE_CONFIG);
 
     return {
       username,
