@@ -3,6 +3,7 @@
 import { BASE_URL } from '@/globalConsts';
 import { useRouter } from 'next/navigation';
 const colors = ['bg-green-900', 'bg-green-600', 'bg-green-400'];
+import { loadStripe } from '@stripe/stripe-js';
 
 export function PayButton({
   i,
@@ -24,8 +25,8 @@ export function PayButton({
       body: JSON.stringify({ productPriceId: priceId, customerId })
     });
 
-    const data = await res.json();
-    router.push(data.url);
+    const { sessionURL } = await res.json();
+    router.push(sessionURL);
   }
 
   return (
