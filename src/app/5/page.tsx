@@ -13,16 +13,18 @@ export default async function Page() {
         alt='fondo'
         className='absolute pointer-events-none w-full h-screen object-cover'
       />
-      {orderPricingCards.map(({ nickname, unit_amount, id }, i) => (
-        <aside
-          key={i}
-          className='border-[0.1vmax] border-white-200 border-solid p-[1vmax] flex flex-col gap-1 text-center relative z-10 bg-[#fff2]'
-        >
-          <h3>{nickname}</h3>
-          <h4>{(unit_amount ?? 0) / 100}$</h4>
-          <PayButton i={i} priceId={id} />
-        </aside>
-      ))}
+      <aside className='p-[1.2vmax] bg-[#000b] rounded-[0.8vmax] flex flex-col gap-[1.2vmax] relative z-50'>
+        {orderPricingCards.map(({ nickname, unit_amount, id }, i) => (
+          <aside
+            key={i}
+            className='border-[0.1vmax] border-white-200 border-solid p-[1vmax] flex flex-col gap-1 text-center relative z-10 bg-[#fff2] rounded-[1vmax] '
+          >
+            <h3>{nickname}</h3>
+            <h4>{(unit_amount ?? 0) / 100}$</h4>
+            <PayButton i={i} priceId={id} />
+          </aside>
+        ))}
+      </aside>
     </section>
   );
 }

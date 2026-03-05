@@ -2,7 +2,7 @@
 
 import { BASE_URL } from '@/globalConsts';
 import { useRouter } from 'next/navigation';
-const colors = ['bg-blue-900', 'bg-blue-600', 'bg-blue-400'];
+const colors = ['bg-green-900', 'bg-green-600', 'bg-green-400'];
 
 export function PayButton({ i, priceId }: { i: number; priceId: string }) {
   const router = useRouter();
@@ -22,7 +22,7 @@ export function PayButton({ i, priceId }: { i: number; priceId: string }) {
 
   return (
     <button
-      className={`${colors[i]} rounded-2xl px-2 py-0.5 relative z-20 active:opacity-50 transition-opacity`}
+      className={`${colors[i]} rounded-2xl px-2 py-0.5 relative z-20 active:opacity-50 transition-opacity hover:opacity-75`}
       onClick={openCheckoutStripe}
     >
       Buy Now
