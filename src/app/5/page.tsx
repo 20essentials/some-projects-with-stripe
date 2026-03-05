@@ -12,7 +12,6 @@ export default async function Page() {
   const cookieStore = await cookies();
   const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY);
   const customerNotExists = !customer;
-  console.log({ customer})
 
   return (
     <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>

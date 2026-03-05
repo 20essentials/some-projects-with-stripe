@@ -70,6 +70,7 @@ export function Formulario() {
       </button>
       {state?.error && <p className='error'>{state.error}</p>}
       {state?.success && <p className='success'>{state.success}</p>}
+      {(state?.success && redirectTo) && <p className='success'>Redirecting...</p>}
     </form>
   );
 }
