@@ -30,5 +30,10 @@ export const arrayOfProjects: ItemProject[] = [
     href: '/4',
     nameProject: 'Creating a Stripe Customer',
     srcImage: '/assets/projects/4.avif'
-  }
+  },
+  {
+    href: '/5',
+    nameProject: 'Charge Customer for Stripe Subscription in Next.js',
+    srcImage: '/assets/projects/5.avif'
+  },
 ] as const;
