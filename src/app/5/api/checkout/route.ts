@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
   if (!productPriceId) throw new Error('Please Give me productPriceId 🐼');
   const stripe = new Stripe(secret);
   const { url } = await stripe.checkout.sessions.create({
+    
     mode: 'subscription',
     payment_method_types: ['card'],
     line_items: [
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
       }
     ],
     success_url: `${BASE_URL}/5/success/`,
-    cancel_url: `${BASE_URL}/5/`
+    cancel_url: `${BASE_URL}/5/`,
   });
 
   return NextResponse.json({ url }, { status: 200 });

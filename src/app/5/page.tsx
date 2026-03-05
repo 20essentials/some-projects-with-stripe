@@ -10,8 +10,13 @@ export default async function Page() {
     (a, b) => a.unit_amount! - b.unit_amount!
   );
   const cookieStore = await cookies();
-  const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY);
+  const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
   const customerNotExists = !customer;
+  let customerId: string;
+  if (customer) {
+    const customerData = JSON.parse(customer);
+    customerId = customerData.id;
+  }
 
   return (
     <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>
@@ -40,7 +45,7 @@ export default async function Page() {
             >
               <h3>{productName}</h3>
               <h4>{(unit_amount ?? 0) / 100}$</h4>
-              <PayButton i={i} priceId={id} />
+              <PayButton i={i} priceId={id} customerId={customerId} />
             </aside>
           ))}
         </aside>

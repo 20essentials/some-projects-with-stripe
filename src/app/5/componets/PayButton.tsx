@@ -4,7 +4,15 @@ import { BASE_URL } from '@/globalConsts';
 import { useRouter } from 'next/navigation';
 const colors = ['bg-green-900', 'bg-green-600', 'bg-green-400'];
 
-export function PayButton({ i, priceId }: { i: number; priceId: string }) {
+export function PayButton({
+  i,
+  priceId,
+  customerId
+}: {
+  i: number;
+  priceId: string;
+  customerId: string;
+}) {
   const router = useRouter();
 
   async function openCheckoutStripe() {
@@ -13,7 +21,7 @@ export function PayButton({ i, priceId }: { i: number; priceId: string }) {
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ productPriceId: priceId })
+      body: JSON.stringify({ productPriceId: priceId, customerId })
     });
 
     const data = await res.json();
