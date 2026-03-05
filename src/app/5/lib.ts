@@ -1,6 +1,8 @@
 import 'server-only';
 import Stripe from 'stripe';
 
+export const PATH_TO_CREATE_CUSTOMER = '/4?redirectTo=/5';
+
 export async function getPricingCards() {
   const secret = process.env.STRIPE_API_SECRET;
   if (!secret) throw new Error('Please give me your secret key! 😉');

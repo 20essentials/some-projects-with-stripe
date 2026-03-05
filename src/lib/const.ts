@@ -1,7 +1,7 @@
 import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 
-export const CUSTOMER = {
-  KEY: '567ec203-f728-4a2e-a4a4-45ad36560a52'
+export const COOKIE_KEY = {
+  CUSTOMER_KEY: '567ec203-f728-4a2e-a4a4-45ad36560a52'
 } as const;
 
 export const COOKIE_CONFIG: Partial<ResponseCookie> = {

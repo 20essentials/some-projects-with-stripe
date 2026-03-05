@@ -3,7 +3,7 @@
 import Stripe from 'stripe';
 import { CreateStripeCustomerState } from '../types/types';
 import { cookies } from 'next/headers';
-import { COOKIE_CONFIG, CUSTOMER } from '@/lib/const';
+import { COOKIE_CONFIG, COOKIE_KEY } from '@/lib/const';
 
 export const createStripeCustomer = async (
   prevState: CreateStripeCustomerState,
@@ -39,7 +39,7 @@ export const createStripeCustomer = async (
     });
 
     const cookieStore = await cookies();
-    cookieStore.set(CUSTOMER.KEY, JSON.stringify(customerCreated), COOKIE_CONFIG);
+    cookieStore.set(COOKIE_KEY.CUSTOMER_KEY, JSON.stringify(customerCreated), COOKIE_CONFIG);
 
     return {
       username,
