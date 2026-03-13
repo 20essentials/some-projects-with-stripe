@@ -4,7 +4,7 @@ export const COOKIE_KEY = {
   CUSTOMER_KEY: '567ec203-f728-4a2e-a4a4-45ad36560a52'
 } as const;
 
-export const CUSTOMER_SUBSCRIPTION_PRICEID = 'customerSubscriptionPriceID';
+export const CUSTOMER_SUBSCRIPTION_PRICEID = 'CUSTOMER_SUBSCRIPTION_PRICEID';
 
 export const COOKIE_CONFIG: Partial<ResponseCookie> = {
   maxAge: 60 * 60 * 24 * 30, // 30 días

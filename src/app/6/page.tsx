@@ -1,8 +1,5 @@
 import { cookies } from 'next/headers';
-import {
-  PATH_TO_BUY_A_PLAN,
-  PATH_TO_CREATE_CUSTOMER
-} from './lib';
+import { PATH_TO_BUY_A_PLAN, PATH_TO_CREATE_CUSTOMER } from './lib';
 import { COOKIE_KEY, CUSTOMER_SUBSCRIPTION_PRICEID } from '@/lib/const';
 import Link from 'next/link';
 import { ManageSubscription } from './componets/PayButton';
@@ -17,11 +14,9 @@ export default async function Page() {
     const customerData = JSON.parse(customer);
     customerId = customerData.id;
     customerHasSuscription = customerData[CUSTOMER_SUBSCRIPTION_PRICEID];
-    console.log({ customerData });
+    console.log(customerData);
+    console.log({ customerHasSuscription });
   }
-
-  //Todo verificar si el usuario existe
-  //Verificar si tiene suscripcion de lo contrario redirigirlo.
 
   return (
     <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>

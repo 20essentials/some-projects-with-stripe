@@ -12,12 +12,9 @@ import {
 export async function POST(request: NextRequest) {
   const { productPriceId, customerId } = await request.json();
   const secret = process.env.STRIPE_API_SECRET;
-  const redirectTo = request.nextUrl.searchParams.get(
-    SEARCH_PARAMS_KEY.redirectTo
-  );
-
-  console.log({ redirectTo})
-  console.log({ nextUrl: request.nextUrl})
+  const urlOrigin = request.headers.get('referer');
+  const searchParams = new URL(urlOrigin!).searchParams;
+  const redirectTo = searchParams.get(SEARCH_PARAMS_KEY.redirectTo);
   if (!secret) throw new Error('Please give me your secret key! 😉');
   if (!productPriceId) throw new Error('Please Give me productPriceId 🐼');
   if (!customerId) throw new Error(`CustomerId don't find it 🧐`);
