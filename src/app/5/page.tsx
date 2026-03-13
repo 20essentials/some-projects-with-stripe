@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { PayButton } from './componets/PayButton';
 import { getPricingCards, PATH_TO_CREATE_CUSTOMER } from './lib';
-import { COOKIE_KEY } from '@/lib/const';
+import { COOKIE_KEY, CUSTOMER_SUBSCRIPTION_PRICEID } from '@/lib/const';
 import Link from 'next/link';
 import RedirectComponent from './componets/redirectComponent';
 
@@ -12,16 +12,18 @@ export default async function Page() {
   );
   const cookieStore = await cookies();
   const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
-  const customerExists = Boolean(customer)
+  const customerExists = Boolean(customer);
   const customerNotExists = !customerExists;
+  let customerHasSuscription = false;
   let customerId: string;
   if (customer) {
     const customerData = JSON.parse(customer);
     customerId = customerData.id;
+    customerHasSuscription = customerData[CUSTOMER_SUBSCRIPTION_PRICEID];
   }
 
   return (
-    <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>
+    <section className='w-full h-screen flex flex-wrap flex-col place-content-center gap-[1vmax]'>
       <img
         src='/assets/bg5.svg'
         alt='fondo'
@@ -53,7 +55,7 @@ export default async function Page() {
         </aside>
       )}
 
-      <RedirectComponent success={customerExists} />
+      {/* <RedirectComponent success={customerExists && customerHasSuscription} /> */}
     </section>
   );
 }

@@ -23,7 +23,7 @@ export default function RedirectComponent({ success }: { success: boolean }) {
   if (!success || !redirectTo) return null;
 
   return (
-    <article className='py-0.5 px-2 border-[0.1vmax] border-black border-solid'>
+    <article className='py-0.5 px-2 border-[0.1vmax] border-black border-solid z-40 text-center mx-auto'>
       <p className='success'>Redirecting...</p>
     </article>
   );

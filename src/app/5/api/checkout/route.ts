@@ -5,12 +5,19 @@ import { cookies } from 'next/headers';
 import {
   COOKIE_CONFIG,
   COOKIE_KEY,
-  CUSTOMER_SUBSCRIPTION_PRICEID
+  CUSTOMER_SUBSCRIPTION_PRICEID,
+  SEARCH_PARAMS_KEY
 } from '@/lib/const';
 
 export async function POST(request: NextRequest) {
   const { productPriceId, customerId } = await request.json();
   const secret = process.env.STRIPE_API_SECRET;
+  const redirectTo = request.nextUrl.searchParams.get(
+    SEARCH_PARAMS_KEY.redirectTo
+  );
+
+  console.log({ redirectTo})
+  console.log({ nextUrl: request.nextUrl})
   if (!secret) throw new Error('Please give me your secret key! 😉');
   if (!productPriceId) throw new Error('Please Give me productPriceId 🐼');
   if (!customerId) throw new Error(`CustomerId don't find it 🧐`);
@@ -25,7 +32,9 @@ export async function POST(request: NextRequest) {
         price: productPriceId
       }
     ],
-    success_url: `${BASE_URL}/5/success/`,
+    success_url: redirectTo
+      ? `${BASE_URL}${redirectTo}`
+      : `${BASE_URL}/5/success/`,
     cancel_url: `${BASE_URL}/5/`
   });
 

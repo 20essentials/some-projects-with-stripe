@@ -1,28 +1,24 @@
 import { cookies } from 'next/headers';
 import {
-  getPricingCards,
   PATH_TO_BUY_A_PLAN,
   PATH_TO_CREATE_CUSTOMER
 } from './lib';
-import { COOKIE_KEY } from '@/lib/const';
+import { COOKIE_KEY, CUSTOMER_SUBSCRIPTION_PRICEID } from '@/lib/const';
 import Link from 'next/link';
 import { ManageSubscription } from './componets/PayButton';
 
 export default async function Page() {
-  const pricingCards = await getPricingCards();
-  const orderPricingCards = pricingCards.toSorted(
-    (a, b) => a.unit_amount! - b.unit_amount!
-  );
   const cookieStore = await cookies();
   const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
   const customerNotExists = !customer;
   let customerId: string = '';
+  let customerHasSuscription = false;
   if (customer) {
     const customerData = JSON.parse(customer);
     customerId = customerData.id;
+    customerHasSuscription = customerData[CUSTOMER_SUBSCRIPTION_PRICEID];
     console.log({ customerData });
   }
-  const customerHasSuscription = true;
 
   //Todo verificar si el usuario existe
   //Verificar si tiene suscripcion de lo contrario redirigirlo.

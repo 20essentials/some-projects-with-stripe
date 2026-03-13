@@ -8,10 +8,10 @@ export default function Page() {
         alt='fondo'
         className='absolute pointer-events-none w-full h-screen object-cover'
       />
-      <h2 className='text-lime-500 p-1.5 bg-[#fff2] border-[0.1vmax] border-white border-solid'>
+      <h2 className='text-lime-500 p-1.5 bg-[#000a] border-[0.1vmax] border-white border-solid z-50 relative'>
         Success! Payment Accepted!
         <br />
-        <Link href='/1' className='text-lime-500 text-center underline mx-auto'>
+        <Link href='/5' className='text-lime-500 text-center underline mx-auto'>
           Go to Pricing Plans to buy more!
         </Link>
       </h2>
