@@ -4,7 +4,7 @@ import { BASE_URL } from '@/globalConsts';
 import { useRouter } from 'next/navigation';
 const colors = ['bg-green-900', 'bg-green-600', 'bg-green-400'];
 
-export function PayButton({
+export function ManageSubscription({
   i,
   priceId,
   customerId
@@ -33,7 +33,7 @@ export function PayButton({
       className={`${colors[i]} rounded-2xl px-2 py-0.5 relative z-20 active:opacity-50 transition-opacity hover:opacity-75`}
       onClick={openCheckoutStripe}
     >
-      Buy Now
+      Manage Subscription
     </button>
   );
 }

@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <section className='w-full h-screen flex flex-wrap flex-col place-content-center gap-[1vmax]'>
       <img
-        src='/assets/bg6.svg'
+        src='/assets/bg6.jpeg'
         alt='fondo'
         className='absolute pointer-events-none w-full h-screen object-cover'
       />

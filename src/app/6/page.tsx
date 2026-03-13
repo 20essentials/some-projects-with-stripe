@@ -1,5 +1,4 @@
 import { cookies } from 'next/headers';
-import { PayButton } from './componets/PayButton';
 import {
   getPricingCards,
   PATH_TO_BUY_A_PLAN,
@@ -7,6 +6,7 @@ import {
 } from './lib';
 import { COOKIE_KEY } from '@/lib/const';
 import Link from 'next/link';
+import { ManageSubscription } from './componets/PayButton';
 
 export default async function Page() {
   const pricingCards = await getPricingCards();
@@ -16,10 +16,11 @@ export default async function Page() {
   const cookieStore = await cookies();
   const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
   const customerNotExists = !customer;
-  let customerId: string;
+  let customerId: string = '';
   if (customer) {
     const customerData = JSON.parse(customer);
     customerId = customerData.id;
+    console.log({ customerData });
   }
   const customerHasSuscription = true;
 
@@ -29,7 +30,7 @@ export default async function Page() {
   return (
     <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>
       <img
-        src='/assets/bg6.avif'
+        src='/assets/bg6.jpeg'
         alt='fondo'
         className='absolute pointer-events-none w-full h-screen object-cover'
       />
@@ -46,7 +47,7 @@ export default async function Page() {
         </h1>
       ) : customerHasSuscription ? (
         <aside className='p-[1.2vmax] bg-[#000b] rounded-[0.8vmax] flex flex-col gap-[1.2vmax] relative z-50'>
-          <button>Manage Subscriptions</button>
+          <ManageSubscription i={0} customerId={customerId} priceId={customer} />
         </aside>
       ) : (
         <h1 className='p-[1.4vmax] bg-[#000b] backdrop-blur-sm border border-white/10 rounded-[0.9vmax] relative z-50 text-white text-[1.25vmax] leading-relaxed shadow-lg'>
@@ -55,7 +56,7 @@ export default async function Page() {
             href={PATH_TO_BUY_A_PLAN}
             className='underline underline-offset-4 decoration-white/60 font-semibold hover:decoration-white transition'
           >
-            buy a plan
+            buy a subscription plan
           </Link>
         </h1>
       )}

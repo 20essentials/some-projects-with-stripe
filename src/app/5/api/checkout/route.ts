@@ -1,6 +1,12 @@
 import { BASE_URL } from '@/globalConsts';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { cookies } from 'next/headers';
+import {
+  COOKIE_CONFIG,
+  COOKIE_KEY,
+  CUSTOMER_SUBSCRIPTION_PRICEID
+} from '@/lib/const';
 
 export async function POST(request: NextRequest) {
   const { productPriceId, customerId } = await request.json();
@@ -22,6 +28,18 @@ export async function POST(request: NextRequest) {
     success_url: `${BASE_URL}/5/success/`,
     cancel_url: `${BASE_URL}/5/`
   });
+
+  const cookieStore = await cookies();
+  const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
+  const customerParsedData = JSON.parse(customer!);
+  cookieStore.set(
+    COOKIE_KEY.CUSTOMER_KEY,
+    JSON.stringify({
+      ...customerParsedData,
+      CUSTOMER_SUBSCRIPTION_PRICEID: productPriceId
+    }),
+    COOKIE_CONFIG
+  );
 
   return NextResponse.json({ sessionURL: url }, { status: 200 });
 }
