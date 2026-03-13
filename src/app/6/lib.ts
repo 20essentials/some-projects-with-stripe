@@ -2,6 +2,7 @@ import 'server-only';
 import Stripe from 'stripe';
 
 export const PATH_TO_CREATE_CUSTOMER = '/4?redirectTo=/5';
+export const PATH_TO_BUY_A_PLAN = '/5?redirectTo=/6';
 
 export async function getPricingCards() {
   const secret = process.env.STRIPE_API_SECRET;
