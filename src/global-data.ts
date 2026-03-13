@@ -36,4 +36,9 @@ export const arrayOfProjects: ItemProject[] = [
     nameProject: 'Charge Customer for Stripe Subscription in Next.js',
     srcImage: '/assets/projects/5.avif'
   },
+  {
+    href: '/6',
+    nameProject: 'Allow Customer to Manage Their Subscription with Stripe Customer Portal',
+    srcImage: '/assets/projects/6.avif'
+  },
 ] as const;
