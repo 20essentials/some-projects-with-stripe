@@ -14,12 +14,12 @@ export default async function Page() {
   const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
   const customerExists = Boolean(customer);
   const customerNotExists = !customerExists;
-  let customerHasSuscription = false;
+  // let customerHasSuscription = false;
   let customerId: string;
   if (customer) {
     const customerData = JSON.parse(customer);
     customerId = customerData.id;
-    customerHasSuscription = customerData[CUSTOMER_SUBSCRIPTION_PRICEID];
+    // customerHasSuscription = customerData[CUSTOMER_SUBSCRIPTION_PRICEID];
   }
 
   return (

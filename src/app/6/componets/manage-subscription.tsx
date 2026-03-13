@@ -6,22 +6,20 @@ const colors = ['bg-green-900', 'bg-green-600', 'bg-green-400'];
 
 export function ManageSubscription({
   i,
-  priceId,
   customerId
 }: {
   i: number;
-  priceId: string;
   customerId: string;
 }) {
   const router = useRouter();
 
-  async function openCheckoutStripe() {
-    const res = await fetch(`${BASE_URL}/5/api/checkout`, {
+  async function openCustomerPortal() {
+    const res = await fetch(`${BASE_URL}/6/api/subscription`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ productPriceId: priceId, customerId })
+      body: JSON.stringify({ customerId })
     });
 
     const { sessionURL } = await res.json();
@@ -31,7 +29,7 @@ export function ManageSubscription({
   return (
     <button
       className={`${colors[i]} rounded-2xl px-2 py-0.5 relative z-20 active:opacity-50 transition-opacity hover:opacity-75`}
-      onClick={openCheckoutStripe}
+      onClick={openCustomerPortal}
     >
       Manage Subscription
     </button>

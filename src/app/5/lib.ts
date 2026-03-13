@@ -12,7 +12,7 @@ export async function getPricingCards() {
     pricesList.data.map(async price => {
       const product = await stripe.products.retrieve(price.product.toString());
       /*
-      console.log({ productName: product.name });
+      ({ productName: product.name });
       { productName: 'Business Plan' }
       { productName: 'Basic Plan' }
       { productName: 'Premium Plan' }

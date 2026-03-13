@@ -2,7 +2,7 @@ import { cookies } from 'next/headers';
 import { PATH_TO_BUY_A_PLAN, PATH_TO_CREATE_CUSTOMER } from './lib';
 import { COOKIE_KEY, CUSTOMER_SUBSCRIPTION_PRICEID } from '@/lib/const';
 import Link from 'next/link';
-import { ManageSubscription } from './componets/PayButton';
+import { ManageSubscription } from './componets/manage-subscription';
 
 export default async function Page() {
   const cookieStore = await cookies();
@@ -14,8 +14,6 @@ export default async function Page() {
     const customerData = JSON.parse(customer);
     customerId = customerData.id;
     customerHasSuscription = customerData[CUSTOMER_SUBSCRIPTION_PRICEID];
-    console.log(customerData);
-    console.log({ customerHasSuscription });
   }
 
   return (
@@ -38,7 +36,7 @@ export default async function Page() {
         </h1>
       ) : customerHasSuscription ? (
         <aside className='p-[1.2vmax] bg-[#000b] rounded-[0.8vmax] flex flex-col gap-[1.2vmax] relative z-50'>
-          <ManageSubscription i={0} customerId={customerId} priceId={customer} />
+          <ManageSubscription i={0} customerId={customerId} />
         </aside>
       ) : (
         <h1 className='p-[1.4vmax] bg-[#000b] backdrop-blur-sm border border-white/10 rounded-[0.9vmax] relative z-50 text-white text-[1.25vmax] leading-relaxed shadow-lg'>
