@@ -3,6 +3,7 @@ import { PayButton } from './componets/PayButton';
 import { getPricingCards, PATH_TO_CREATE_CUSTOMER } from './lib';
 import { COOKIE_KEY } from '@/lib/const';
 import Link from 'next/link';
+import RedirectComponent from './componets/redirectComponent';
 
 export default async function Page() {
   const pricingCards = await getPricingCards();
@@ -11,7 +12,8 @@ export default async function Page() {
   );
   const cookieStore = await cookies();
   const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
-  const customerNotExists = !customer;
+  const customerExists = Boolean(customer)
+  const customerNotExists = !customerExists;
   let customerId: string;
   if (customer) {
     const customerData = JSON.parse(customer);
@@ -50,6 +52,8 @@ export default async function Page() {
           ))}
         </aside>
       )}
+
+      <RedirectComponent success={customerExists} />
     </section>
   );
 }
