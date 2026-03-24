@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Formulario } from './componets/formulario';
 
 export default async function Page() {
@@ -10,6 +11,7 @@ export default async function Page() {
       />
 
       <Formulario />
+      <Suspense fallback={<div>Loading...</div>}>Formulario</Suspense>
     </section>
   );
 }
