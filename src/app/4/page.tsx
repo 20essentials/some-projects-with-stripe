@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import { Formulario } from './componets/formulario';
-
 export default async function Page() {
   return (
     <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>
@@ -10,8 +9,9 @@ export default async function Page() {
         className='absolute pointer-events-none w-full h-screen object-cover'
       />
 
-      <Formulario />
-      <Suspense fallback={<div>Loading...</div>}>Formulario</Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Formulario />
+      </Suspense>
     </section>
   );
 }
