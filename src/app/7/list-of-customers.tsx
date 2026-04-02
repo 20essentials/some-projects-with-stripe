@@ -10,7 +10,6 @@ export async function ListOfCustomers({
 }) {
   const readOnlySearchParams = await searchParams;
   const query = readOnlySearchParams.query;
-  console.log({ query });
   const customers = query
     ? await searchCustomersByEmail({
         query: `email~"${query}"`

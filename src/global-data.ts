@@ -38,7 +38,8 @@ export const arrayOfProjects: ItemProject[] = [
   },
   {
     href: '/6',
-    nameProject: 'Allow Customer to Manage Their Subscription with Stripe Customer Portal',
+    nameProject:
+      'Allow Customer to Manage Their Subscription with Stripe Customer Portal',
     srcImage: '/assets/projects/6.avif'
   },
   {
@@ -46,4 +47,11 @@ export const arrayOfProjects: ItemProject[] = [
     nameProject: 'Auto-Pagination and List Customers',
     srcImage: '/assets/projects/7.avif'
   },
+  {
+    href: '/8',
+    nameProject: 'Search Query Language',
+    realHref:
+      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/7/list-of-customers.tsx',
+    srcImage: '/assets/projects/8.avif'
+  }
 ] as const;
