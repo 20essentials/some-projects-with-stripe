@@ -8,10 +8,9 @@ import {
   CollapsibleContent,
   CollapsibleTrigger
 } from '@/components/ui/collapsible';
+import { Customer } from './types';
 
-
-
-function CustomerItem({ customer }: { customer: Customer }) {
+export function CustomerItem({ customer }: { customer: Customer }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { id, name, email, description, currency, balance, created } = customer;
