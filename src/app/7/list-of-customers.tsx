@@ -9,9 +9,10 @@ export async function ListOfCustomers({
 }) {
   const readOnlySearchParams = await searchParams;
   const query = readOnlySearchParams.query;
+  console.log({ query });
   const customers = query
-    ? await getCustomers()
-    : await searchCustomersByEmail({ query: `email~${query}` });
+    ? await searchCustomersByEmail({ query: `email~"${query}"` })
+    : await getCustomers();
 
   return (
     <div className='flex flex-col gap-4 w-full h-screen z-20 place-items-center p-[1.2vmax]'>
