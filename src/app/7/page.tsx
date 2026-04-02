@@ -1,0 +1,54 @@
+import { cookies } from 'next/headers';
+import { PATH_TO_BUY_A_PLAN, PATH_TO_CREATE_CUSTOMER } from './lib';
+import { COOKIE_KEY, CUSTOMER_SUBSCRIPTION_PRICEID } from '@/lib/const';
+import Link from 'next/link';
+import { ManageSubscription } from './componets/manage-subscription';
+
+export default async function Page() {
+  const cookieStore = await cookies();
+  const customer = cookieStore.get(COOKIE_KEY.CUSTOMER_KEY)?.value;
+  const customerNotExists = !customer;
+  let customerId: string = '';
+  let customerHasSuscription = false;
+  if (customer) {
+    const customerData = JSON.parse(customer);
+    customerId = customerData.id;
+    customerHasSuscription = customerData[CUSTOMER_SUBSCRIPTION_PRICEID];
+  }
+
+  return (
+    <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>
+      <img
+        src='/assets/bg6.jpeg'
+        alt='fondo'
+        className='absolute pointer-events-none w-full h-screen object-cover'
+      />
+
+      {customerNotExists ? (
+        <h1 className='p-[1.4vmax] bg-[#000b] backdrop-blur-sm border border-white/10 rounded-[0.9vmax] relative z-50 text-white text-[1.25vmax] leading-relaxed shadow-lg'>
+          <span className='opacity-80'>To prove this project, first</span>{' '}
+          <Link
+            href={PATH_TO_CREATE_CUSTOMER}
+            className='underline underline-offset-4 decoration-white/60 font-semibold hover:decoration-white transition'
+          >
+            create a customer
+          </Link>
+        </h1>
+      ) : customerHasSuscription ? (
+        <aside className='p-[1.2vmax] bg-[#000b] rounded-[0.8vmax] flex flex-col gap-[1.2vmax] relative z-50'>
+          <ManageSubscription i={0} customerId={customerId} />
+        </aside>
+      ) : (
+        <h1 className='p-[1.4vmax] bg-[#000b] backdrop-blur-sm border border-white/10 rounded-[0.9vmax] relative z-50 text-white text-[1.25vmax] leading-relaxed shadow-lg'>
+          <span className='opacity-80'>To prove this project, first</span>{' '}
+          <Link
+            href={PATH_TO_BUY_A_PLAN}
+            className='underline underline-offset-4 decoration-white/60 font-semibold hover:decoration-white transition'
+          >
+            buy a subscription plan
+          </Link>
+        </h1>
+      )}
+    </section>
+  );
+}

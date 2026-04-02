@@ -41,4 +41,9 @@ export const arrayOfProjects: ItemProject[] = [
     nameProject: 'Allow Customer to Manage Their Subscription with Stripe Customer Portal',
     srcImage: '/assets/projects/6.avif'
   },
+  {
+    href: '/7',
+    nameProject: 'Auto-Pagination and List Customers',
+    srcImage: '/assets/projects/7.avif'
+  },
 ] as const;
