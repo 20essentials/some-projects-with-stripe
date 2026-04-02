@@ -1,4 +1,5 @@
 import { CustomerItem } from './customer-item';
+import { InputSearch } from './input-search';
 import { getCustomers, searchCustomersByEmail } from './lib';
 import { Customer } from './types';
 
@@ -11,7 +12,9 @@ export async function ListOfCustomers({
   const query = readOnlySearchParams.query;
   console.log({ query });
   const customers = query
-    ? await searchCustomersByEmail({ query: `email~"${query}"` })
+    ? await searchCustomersByEmail({
+        query: `email~"${query}"`
+      })
     : await getCustomers();
 
   return (
@@ -19,6 +22,11 @@ export async function ListOfCustomers({
       <h2 className='text-amber-50 font-black uppercase'>
         List of Clients (Example)
       </h2>
+      <InputSearch />
+
+      {
+        customers.length === 0 && <h2>Without results 🙃</h2>
+      }
       {(customers as Customer[]).map(({ id, ...rest }: Customer, index) => (
         <CustomerItem key={id} customer={{ id, ...rest }} index={index} />
       ))}
