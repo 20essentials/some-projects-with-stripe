@@ -6,9 +6,12 @@ export async function getCustomers() {
   if (!secret) throw new Error('The stripe secret key is not defined 🙃');
   const stripe = new Stripe(secret);
   const customers = [];
-  for await (const customer of stripe.customers.list({ limit: 10 })) {
+  for await (const customer of stripe.customers.list({
+    limit: 10
+  })) {
     customers.push(customer);
   }
 
+  console.log({ customers });
   return customers;
 }
