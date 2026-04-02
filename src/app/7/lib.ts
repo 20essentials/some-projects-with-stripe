@@ -11,7 +11,29 @@ export async function getCustomers() {
   })) {
     customers.push(customer);
   }
+  return customers;
+}
 
-  console.log({ customers });
+export async function searchCustomersByEmail({ query }: { query: string }) {
+  const secret = process.env.STRIPE_API_SECRET;
+  if (!secret) throw new Error('The stripe secret key is not defined 🙃');
+  const stripe = new Stripe(secret);
+  const customers = [];
+  let page = null;
+
+  while (true) {
+    const response = await stripe.customers.search({
+      query,
+      limit: 100,
+      ...(page && { page })
+    });
+
+    customers.push(...response.data);
+
+    if (!response.has_more) break;
+
+    page = response.next_page;
+  }
+
   return customers;
 }
