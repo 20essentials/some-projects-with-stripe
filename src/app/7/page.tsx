@@ -10,6 +10,7 @@ export default async function Page() {
         className='fixed pointer-events-none w-full h-screen object-cover -z-30'
       />
       <aside className='fixed w-full h-screen -z-20 bg-[#000a]'></aside>
+      
       <Suspense fallback={<h2>Loading...</h2>}>
         <ListOfCustomers />
       </Suspense>

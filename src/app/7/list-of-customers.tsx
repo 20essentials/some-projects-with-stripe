@@ -6,9 +6,9 @@ export async function ListOfCustomers() {
 
   return (
     <div className='flex flex-col gap-4 w-full h-screen z-20 place-items-center p-[1.2vmax]'>
-      
-      {(customers as Customer[]).map(({ id, ...rest }: Customer) => (
-        <CustomerItem key={id} customer={{ id, ...rest }} />
+      <h2 className='text-amber-50 font-black uppercase'>List of Clients (Example)</h2>
+      {(customers as Customer[]).map(({ id, ...rest }: Customer, index) => (
+        <CustomerItem key={id} customer={{ id, ...rest }} index={index} />
       ))}
     </div>
   );
