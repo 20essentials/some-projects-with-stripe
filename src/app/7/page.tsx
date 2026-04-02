@@ -1,4 +1,7 @@
+
+
 export default async function Page() {
+
   return (
     <section className='w-full h-screen flex flex-wrap place-content-center gap-[1vmax]'>
       <img
