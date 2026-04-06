@@ -5,53 +5,61 @@ type ItemProject = {
   nameProject: string;
   realHref?: string;
   srcImage: string;
+  id: string;
 };
 
 export const arrayOfProjects: ItemProject[] = [
   {
     href: '/1',
     nameProject: 'Recurring Pricing Plans',
-    srcImage: '/assets/projects/1.avif'
+    srcImage: '/assets/projects/1.avif',
+    id: '01'
   },
   {
     href: '/2',
     nameProject: 'Single Payment',
-    srcImage: '/assets/projects/2.avif'
+    srcImage: '/assets/projects/2.avif',
+    id: '02'
   },
-
   {
     href: '/3',
     nameProject: 'Webhooks',
     realHref:
       'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/3/api/webhook/route.ts',
-    srcImage: '/assets/projects/3.avif'
+    srcImage: '/assets/projects/3.avif',
+    id: '03'
   },
   {
     href: '/4',
     nameProject: 'Creating a Stripe Customer',
-    srcImage: '/assets/projects/4.avif'
+    srcImage: '/assets/projects/4.avif',
+    id: '04'
   },
   {
     href: '/5',
     nameProject: 'Charge Customer for Stripe Subscription in Next.js',
-    srcImage: '/assets/projects/5.avif'
+    srcImage: '/assets/projects/5.avif',
+    id: '05'
   },
   {
     href: '/6',
     nameProject:
       'Allow Customer to Manage Their Subscription with Stripe Customer Portal',
-    srcImage: '/assets/projects/6.avif'
+    srcImage: '/assets/projects/6.avif',
+    id: '06'
   },
   {
     href: '/7',
     nameProject: 'Auto-Pagination and List Customers',
-    srcImage: '/assets/projects/7.avif'
+    srcImage: '/assets/projects/7.avif',
+    id: '07'
   },
   {
-    href: '/8',
+    href: '/7',
     nameProject: 'Search Query Language',
     realHref:
       'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/7/list-of-customers.tsx',
-    srcImage: '/assets/projects/8.avif'
+    srcImage: '/assets/projects/8.avif',
+    id: '08'
   }
 ] as const;
