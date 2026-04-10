@@ -9,7 +9,7 @@ export default async function Page({
   return (
     <section className='w-full h-screen flex relative flex-wrap place-content-center gap-[1vmax]'>
       <img
-        src='/assets/bg7.jpeg'
+        src='/assets/bg7.avif'
         alt='fondo'
         className='fixed pointer-events-none w-full h-screen object-cover -z-30'
       />
