@@ -74,8 +74,8 @@ export const arrayOfProjects: ItemProject[] = [
     href: '/9',
     nameProject: 'Accounts Links V2',
     realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/8/index-accounts-v2.ts',
-    srcImage: '/assets/projects/9.avif',
-    id: '09'
+      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/9/index-account-link-v2.ts',
+    srcImage: '/assets/projects/10.avif',
+    id: '10'
   },
 ] as const;
