@@ -2,8 +2,6 @@ import { BASE_URL } from '@/globalConsts';
 import 'server-only';
 import Stripe from 'stripe';
 
-export const PATH_TO_CREATE_CUSTOMER = '/4?redirectTo=/9';
-
 export async function getAccountLink({ accountId }: { accountId: string }) {
   const secret = process.env.STRIPE_API_SECRET;
   if (!secret) throw new Error('Please give me your secret key! 😉');
