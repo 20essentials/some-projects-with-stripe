@@ -9,7 +9,10 @@ export async function getBalance() {
     const balance = await stripe.balance.retrieve();
     return balance;
   } catch (error) {
-    console.error('Stripe error:', error);
+    console.error('Stripe error', error);
     throw new Error('Failed getting the balance');
   }
 }
+
+
+
