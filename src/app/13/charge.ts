@@ -3,9 +3,7 @@ import Stripe from 'stripe';
 const secret = process.env.STRIPE_API_SECRET;
 if (!secret) throw new Error('Missing Stripe secret key');
 
-const stripe = new Stripe(secret, {
-  apiVersion: '2026-01-28.clover'
-});
+const stripe = new Stripe(secret);
 
 /************** LEGACY ************* */
 export async function createCharge({
