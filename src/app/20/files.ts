@@ -13,7 +13,7 @@ export async function createFile({
   purpose,
   fileLinkData
 }: {
-  file: Stripe.FileCreateParams.File;
+  file: Stripe.FileCreateParams['file'];
   purpose: Stripe.FileCreateParams.Purpose;
   fileLinkData?: Stripe.FileCreateParams.FileLinkData;
 }): Promise<Stripe.File> {
@@ -70,7 +70,7 @@ export async function listFiles({
   purpose,
   limit = 10
 }: {
-  purpose?: string;
+  purpose?: Stripe.FileListParams['purpose'];
   limit?: number;
 } = {}): Promise<Stripe.ApiList<Stripe.File>> {
   try {
