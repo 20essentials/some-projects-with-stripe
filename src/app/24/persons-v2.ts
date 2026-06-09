@@ -6,35 +6,40 @@ if (!secret) throw new Error('Missing Stripe secret key');
 
 const stripe = new Stripe(secret);
 
-/************** V2 CORE PERSONS ************* */
+/************** PERSONS ************* */
+
+type CreatePersonParams = Parameters<
+  typeof stripe.accounts.createPerson
+>[1];
+
+type UpdatePersonParams = Parameters<
+  typeof stripe.accounts.updatePerson
+>[2];
 
 export async function createPerson({
   accountId,
-  givenName,
-  surname,
+  firstName,
+  lastName,
   email,
   phone,
-  relationship,
-  metadata
+  relationship
 }: {
   accountId: string;
-  givenName?: string;
-  surname?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   phone?: string;
-  relationship?: Record<string, unknown>;
-  metadata?: Record<string, string>;
-}) {
+  relationship?: CreatePersonParams['relationship'];
+}): Promise<Stripe.Person> {
   try {
-    const person = await stripe.v2.core.persons.create(
+    const person = await stripe.accounts.createPerson(
       accountId,
       {
-        given_name: givenName,
-        surname,
+        first_name: firstName,
+        last_name: lastName,
         email,
         phone,
-        relationship,
-        metadata
+        relationship
       }
     );
 
@@ -42,10 +47,9 @@ export async function createPerson({
 
     /* {
       "id": "person_123",
-      "object": "v2.core.account_person",
-      "account": "acct_123",
-      "given_name": "Jenny",
-      "surname": "Rosen",
+      "object": "person",
+      "first_name": "Jenny",
+      "last_name": "Rosen",
       "email": "jenny@example.com"
     } */
   } catch (error) {
@@ -60,9 +64,9 @@ export async function retrievePerson({
 }: {
   accountId: string;
   personId: string;
-}) {
+}): Promise<Stripe.Person> {
   try {
-    const person = await stripe.v2.core.persons.retrieve(
+    const person = await stripe.accounts.retrievePerson(
       accountId,
       personId
     );
@@ -71,10 +75,9 @@ export async function retrievePerson({
 
     /* {
       "id": "person_123",
-      "object": "v2.core.account_person",
-      "account": "acct_123",
-      "given_name": "Jenny",
-      "surname": "Rosen",
+      "object": "person",
+      "first_name": "Jenny",
+      "last_name": "Rosen",
       "email": "jenny@example.com"
     } */
   } catch (error) {
@@ -86,33 +89,30 @@ export async function retrievePerson({
 export async function updatePerson({
   accountId,
   personId,
-  givenName,
-  surname,
+  firstName,
+  lastName,
   email,
   phone,
-  relationship,
-  metadata
+  relationship
 }: {
   accountId: string;
   personId: string;
-  givenName?: string;
-  surname?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   phone?: string;
-  relationship?: Record<string, unknown>;
-  metadata?: Record<string, string>;
-}) {
+  relationship?: UpdatePersonParams['relationship'];
+}): Promise<Stripe.Person> {
   try {
-    const person = await stripe.v2.core.persons.update(
+    const person = await stripe.accounts.updatePerson(
       accountId,
       personId,
       {
-        given_name: givenName,
-        surname,
+        first_name: firstName,
+        last_name: lastName,
         email,
         phone,
-        relationship,
-        metadata
+        relationship
       }
     );
 
@@ -120,10 +120,9 @@ export async function updatePerson({
 
     /* {
       "id": "person_123",
-      "object": "v2.core.account_person",
-      "given_name": "Jennifer",
-      "surname": "Rosen",
-      "metadata": {}
+      "object": "person",
+      "first_name": "Jennifer",
+      "last_name": "Rosen"
     } */
   } catch (error) {
     console.error('Stripe error', error);
@@ -133,13 +132,13 @@ export async function updatePerson({
 
 export async function listPersons({
   accountId,
-  limit
+  limit = 10
 }: {
   accountId: string;
   limit?: number;
-}) {
+}): Promise<Stripe.ApiList<Stripe.Person>> {
   try {
-    const persons = await stripe.v2.core.persons.list(
+    const persons = await stripe.accounts.listPersons(
       accountId,
       {
         limit
@@ -149,15 +148,15 @@ export async function listPersons({
     return persons;
 
     /* {
+      "object": "list",
       "data": [
         {
           "id": "person_123",
-          "given_name": "Jenny",
-          "surname": "Rosen"
+          "first_name": "Jenny",
+          "last_name": "Rosen"
         }
       ],
-      "next_page_url": null,
-      "previous_page_url": null
+      "has_more": false
     } */
   } catch (error) {
     console.error('Stripe error', error);
@@ -173,7 +172,7 @@ export async function deletePerson({
   personId: string;
 }) {
   try {
-    const deleted = await stripe.v2.core.persons.delete(
+    const deleted = await stripe.accounts.deletePerson(
       accountId,
       personId
     );
@@ -182,7 +181,7 @@ export async function deletePerson({
 
     /* {
       "id": "person_123",
-      "object": "v2.core.account_person",
+      "object": "person",
       "deleted": true
     } */
   } catch (error) {
