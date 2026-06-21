@@ -214,4 +214,12 @@ export const arrayOfProjects: ItemProject[] = [
     srcImage: '/assets/projects/27.avif',
     id: '27'
   },
+  {
+    href: '/27',
+    nameProject: 'Setup Attempt',
+    realHref:
+      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/27/setup-attempt.ts',
+    srcImage: '/assets/projects/28.avif',
+    id: '28'
+  },
 ] as const;
