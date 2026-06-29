@@ -94,7 +94,7 @@ export async function listPayouts({
   destination
 }: {
   limit?: number;
-  status?: Stripe.PayoutListParams.Status;
+  status?: string;
   destination?: string;
 } = {}): Promise<Stripe.ApiList<Stripe.Payout>> {
   try {
