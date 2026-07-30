@@ -1,0 +1,5 @@
+{
+  "typescript.validate.enable": false,
+  "prettier.printWidth": 50, // Limita el ancho de las líneas a 82 caracteres
+  //  "editor.scrollBeyondLastLine": false, /* Desactiva el padding Inferior de VS */
+}
