@@ -8,306 +8,365 @@ type ItemProject = {
   id: string;
 };
 
-export const arrayOfProjects: ItemProject[] = [
-  {
-    href: '/1',
-    nameProject: 'Recurring Pricing Plans',
-    srcImage: '/assets/projects/1.avif',
-    id: '01'
-  },
-  {
-    href: '/2',
-    nameProject: 'Single Payment',
-    srcImage: '/assets/projects/2.avif',
-    id: '02'
-  },
-  {
-    href: '/3',
-    nameProject: 'Webhooks',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/3/api/webhook/route.ts',
-    srcImage: '/assets/projects/3.avif',
-    id: '03'
-  },
-  {
-    href: '/4',
-    nameProject: 'Creating a Stripe Customer',
-    srcImage: '/assets/projects/4.avif',
-    id: '04'
-  },
-  {
-    href: '/5',
-    nameProject: 'Charge Customer for Stripe Subscription in Next.js',
-    srcImage: '/assets/projects/5.avif',
-    id: '05'
-  },
-  {
-    href: '/6',
-    nameProject:
-      'Allow Customer to Manage Their Subscription with Stripe Customer Portal',
-    srcImage: '/assets/projects/6.avif',
-    id: '06'
-  },
-  {
-    href: '/7',
-    nameProject: 'Auto-Pagination and List Customers',
-    srcImage: '/assets/projects/7.avif',
-    id: '07'
-  },
-  {
-    href: '/7',
-    nameProject: 'Search Query Language',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/7/list-of-customers.tsx',
-    srcImage: '/assets/projects/8.avif',
-    id: '08'
-  },
-  {
-    href: '/8',
-    nameProject: 'Accounts V2',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/8/index-accounts-v2.ts',
-    srcImage: '/assets/projects/9.avif',
-    id: '09'
-  },
-  {
-    href: '/9',
-    nameProject: 'Accounts Links V2',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/9/index-account-link-v2.ts',
-    srcImage: '/assets/projects/10.avif',
-    id: '10'
-  },
-  {
-    href: '/10',
-    nameProject: 'Account Tokens V2',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/10/index-account-tokens-v2.ts',
-    srcImage: '/assets/projects/11.avif',
-    id: '11'
-  },
-  {
-    href: '/11',
-    nameProject: 'Balance',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/11/balance.ts',
-    srcImage: '/assets/projects/12.avif',
-    id: '12'
-  },
-  {
-    href: '/12',
-    nameProject: 'Balance Transactions',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/12/balance-transactions.ts',
-    srcImage: '/assets/projects/13.avif',
-    id: '13'
-  },
-  {
-    href: '/13',
-    nameProject: 'Charge',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/13/charge.ts',
-    srcImage: '/assets/projects/14.avif',
-    id: '14'
-  },
-  {
-    href: '/14',
-    nameProject: 'Customer',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/14/customer.ts',
-    srcImage: '/assets/projects/15.avif',
-    id: '15'
-  },
-  {
-    href: '/15',
-    nameProject: 'Customer Session',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/15/customer-session.ts',
-    srcImage: '/assets/projects/16.avif',
-    id: '16'
-  },
-  {
-    href: '/16',
-    nameProject: 'Disputes',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/16/disputes.ts',
-    srcImage: '/assets/projects/17.avif',
-    id: '17'
-  },
-  {
-    href: '/17',
-    nameProject: 'Events',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/17/events.ts',
-    srcImage: '/assets/projects/18.avif',
-    id: '18'
-  },
-  {
-    href: '/18',
-    nameProject: 'Events V2',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/18/events-v2.ts',
-    srcImage: '/assets/projects/19.avif',
-    id: '19'
-  },
-  {
-    href: '/19',
-    nameProject: 'Events Destination',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/19/events-destinations.ts',
-    srcImage: '/assets/projects/20.avif',
-    id: '20'
-  },
-  {
-    href: '/20',
-    nameProject: 'Files',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/20/files.ts',
-    srcImage: '/assets/projects/21.avif',
-    id: '21'
-  },
-  {
-    href: '/21',
-    nameProject: 'File Links',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/21/file-links.ts',
-    srcImage: '/assets/projects/22.avif',
-    id: '22'
-  },
-  {
-    href: '/22',
-    nameProject: 'Mandate',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/22/mandate.ts',
-    srcImage: '/assets/projects/23.avif',
-    id: '23'
-  },
-  {
-    href: '/23',
-    nameProject: 'Payment Intents',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/23/payment-intent.ts',
-    srcImage: '/assets/projects/24.avif',
-    id: '24'
-  },
-  {
-    href: '/24',
-    nameProject: 'Persons V2',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/24/persons-v2.ts',
-    srcImage: '/assets/projects/25.avif',
-    id: '25'
-  },
-  {
-    href: '/25',
-    nameProject: 'Person Tokens',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/25/person-tokens.ts',
-    srcImage: '/assets/projects/26.avif',
-    id: '26'
-  },
-  {
-    href: '/26',
-    nameProject: 'Setup Intents',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/26/setup-intent.ts',
-    srcImage: '/assets/projects/27.avif',
-    id: '27'
-  },
-  {
-    href: '/27',
-    nameProject: 'Setup Attempt',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/27/setup-attempt.ts',
-    srcImage: '/assets/projects/28.avif',
-    id: '28'
-  },
-  {
-    href: '/28',
-    nameProject: 'Payouts',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/28/payouts.ts',
-    srcImage: '/assets/projects/29.avif',
-    id: '29'
-  },
-  {
-    href: '/29',
-    nameProject: 'Payouts',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/29/refund.ts',
-    srcImage: '/assets/projects/30.avif',
-    id: '30'
-  },
-  {
-    href: '/30',
-    nameProject: 'Confirmation Token',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/30/confirmation-token.ts',
-    srcImage: '/assets/projects/31.avif',
-    id: '31'
-  },
-  {
-    href: '/31',
-    nameProject: 'Tokens',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/31/tokens.ts',
-    srcImage: '/assets/projects/32.avif',
-    id: '32'
-  },
-  {
-    href: '/32',
-    nameProject: 'Payment Method',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/32/payment-methods.ts',
-    srcImage: '/assets/projects/33.avif',
-    id: '33'
-  },
-  {
-    href: '/33',
-    nameProject: 'Payment Method Configuration',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/33/payment-methods-configurations.ts',
-    srcImage: '/assets/projects/34.avif',
-    id: '34'
-  },
-  {
-    href: '/34',
-    nameProject: 'Payment Method Configuration',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/34/payment-method-domains.ts',
-    srcImage: '/assets/projects/35.avif',
-    id: '35'
-  },
-  {
-    href: '/35',
-    nameProject: 'Customer Bank Account',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/35/customer-bank-account.ts',
-    srcImage: '/assets/projects/36.avif',
-    id: '36'
-  },
-  {
-    href: '/36',
-    nameProject: 'Cash Balance',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/36/cash-balance.ts',
-    srcImage: '/assets/projects/37.avif',
-    id: '37'
-  },
-  {
-    href: '/37',
-    nameProject: 'Cash Balance Transactions',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/37/cash-balance-transactions.ts',
-    srcImage: '/assets/projects/38.avif',
-    id: '38'
-  },
-  {
-    href: '/38',
-    nameProject: 'Cards',
-    realHref:
-      'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/38/cards.ts',
-    srcImage: '/assets/projects/39.avif',
-    id: '39'
-  },
-] as const;
+export const arrayOfProjects: ItemProject[] =
+  [
+    {
+      href: '/1',
+      nameProject:
+        'Recurring Pricing Plans',
+      srcImage:
+        '/assets/projects/1.avif',
+      id: '01'
+    },
+    {
+      href: '/2',
+      nameProject: 'Single Payment',
+      srcImage:
+        '/assets/projects/2.avif',
+      id: '02'
+    },
+    {
+      href: '/3',
+      nameProject: 'Webhooks',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/3/api/webhook/route.ts',
+      srcImage:
+        '/assets/projects/3.avif',
+      id: '03'
+    },
+    {
+      href: '/4',
+      nameProject:
+        'Creating a Stripe Customer',
+      srcImage:
+        '/assets/projects/4.avif',
+      id: '04'
+    },
+    {
+      href: '/5',
+      nameProject:
+        'Charge Customer for Stripe Subscription in Next.js',
+      srcImage:
+        '/assets/projects/5.avif',
+      id: '05'
+    },
+    {
+      href: '/6',
+      nameProject:
+        'Allow Customer to Manage Their Subscription with Stripe Customer Portal',
+      srcImage:
+        '/assets/projects/6.avif',
+      id: '06'
+    },
+    {
+      href: '/7',
+      nameProject:
+        'Auto-Pagination and List Customers',
+      srcImage:
+        '/assets/projects/7.avif',
+      id: '07'
+    },
+    {
+      href: '/7',
+      nameProject:
+        'Search Query Language',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/7/list-of-customers.tsx',
+      srcImage:
+        '/assets/projects/8.avif',
+      id: '08'
+    },
+    {
+      href: '/8',
+      nameProject: 'Accounts V2',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/8/index-accounts-v2.ts',
+      srcImage:
+        '/assets/projects/9.avif',
+      id: '09'
+    },
+    {
+      href: '/9',
+      nameProject: 'Accounts Links V2',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/9/index-account-link-v2.ts',
+      srcImage:
+        '/assets/projects/10.avif',
+      id: '10'
+    },
+    {
+      href: '/10',
+      nameProject: 'Account Tokens V2',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/10/index-account-tokens-v2.ts',
+      srcImage:
+        '/assets/projects/11.avif',
+      id: '11'
+    },
+    {
+      href: '/11',
+      nameProject: 'Balance',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/11/balance.ts',
+      srcImage:
+        '/assets/projects/12.avif',
+      id: '12'
+    },
+    {
+      href: '/12',
+      nameProject:
+        'Balance Transactions',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/12/balance-transactions.ts',
+      srcImage:
+        '/assets/projects/13.avif',
+      id: '13'
+    },
+    {
+      href: '/13',
+      nameProject: 'Charge',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/13/charge.ts',
+      srcImage:
+        '/assets/projects/14.avif',
+      id: '14'
+    },
+    {
+      href: '/14',
+      nameProject: 'Customer',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/14/customer.ts',
+      srcImage:
+        '/assets/projects/15.avif',
+      id: '15'
+    },
+    {
+      href: '/15',
+      nameProject: 'Customer Session',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/15/customer-session.ts',
+      srcImage:
+        '/assets/projects/16.avif',
+      id: '16'
+    },
+    {
+      href: '/16',
+      nameProject: 'Disputes',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/16/disputes.ts',
+      srcImage:
+        '/assets/projects/17.avif',
+      id: '17'
+    },
+    {
+      href: '/17',
+      nameProject: 'Events',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/17/events.ts',
+      srcImage:
+        '/assets/projects/18.avif',
+      id: '18'
+    },
+    {
+      href: '/18',
+      nameProject: 'Events V2',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/18/events-v2.ts',
+      srcImage:
+        '/assets/projects/19.avif',
+      id: '19'
+    },
+    {
+      href: '/19',
+      nameProject: 'Events Destination',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/19/events-destinations.ts',
+      srcImage:
+        '/assets/projects/20.avif',
+      id: '20'
+    },
+    {
+      href: '/20',
+      nameProject: 'Files',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/20/files.ts',
+      srcImage:
+        '/assets/projects/21.avif',
+      id: '21'
+    },
+    {
+      href: '/21',
+      nameProject: 'File Links',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/21/file-links.ts',
+      srcImage:
+        '/assets/projects/22.avif',
+      id: '22'
+    },
+    {
+      href: '/22',
+      nameProject: 'Mandate',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/22/mandate.ts',
+      srcImage:
+        '/assets/projects/23.avif',
+      id: '23'
+    },
+    {
+      href: '/23',
+      nameProject: 'Payment Intents',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/23/payment-intent.ts',
+      srcImage:
+        '/assets/projects/24.avif',
+      id: '24'
+    },
+    {
+      href: '/24',
+      nameProject: 'Persons V2',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/24/persons-v2.ts',
+      srcImage:
+        '/assets/projects/25.avif',
+      id: '25'
+    },
+    {
+      href: '/25',
+      nameProject: 'Person Tokens',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/25/person-tokens.ts',
+      srcImage:
+        '/assets/projects/26.avif',
+      id: '26'
+    },
+    {
+      href: '/26',
+      nameProject: 'Setup Intents',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/26/setup-intent.ts',
+      srcImage:
+        '/assets/projects/27.avif',
+      id: '27'
+    },
+    {
+      href: '/27',
+      nameProject: 'Setup Attempt',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/27/setup-attempt.ts',
+      srcImage:
+        '/assets/projects/28.avif',
+      id: '28'
+    },
+    {
+      href: '/28',
+      nameProject: 'Payouts',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/28/payouts.ts',
+      srcImage:
+        '/assets/projects/29.avif',
+      id: '29'
+    },
+    {
+      href: '/29',
+      nameProject: 'Payouts',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/29/refund.ts',
+      srcImage:
+        '/assets/projects/30.avif',
+      id: '30'
+    },
+    {
+      href: '/30',
+      nameProject: 'Confirmation Token',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/30/confirmation-token.ts',
+      srcImage:
+        '/assets/projects/31.avif',
+      id: '31'
+    },
+    {
+      href: '/31',
+      nameProject: 'Tokens',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/31/tokens.ts',
+      srcImage:
+        '/assets/projects/32.avif',
+      id: '32'
+    },
+    {
+      href: '/32',
+      nameProject: 'Payment Method',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/32/payment-methods.ts',
+      srcImage:
+        '/assets/projects/33.avif',
+      id: '33'
+    },
+    {
+      href: '/33',
+      nameProject:
+        'Payment Method Configuration',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/33/payment-methods-configurations.ts',
+      srcImage:
+        '/assets/projects/34.avif',
+      id: '34'
+    },
+    {
+      href: '/34',
+      nameProject:
+        'Payment Method Configuration',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/34/payment-method-domains.ts',
+      srcImage:
+        '/assets/projects/35.avif',
+      id: '35'
+    },
+    {
+      href: '/35',
+      nameProject:
+        'Customer Bank Account',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/35/customer-bank-account.ts',
+      srcImage:
+        '/assets/projects/36.avif',
+      id: '36'
+    },
+    {
+      href: '/36',
+      nameProject: 'Cash Balance',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/36/cash-balance.ts',
+      srcImage:
+        '/assets/projects/37.avif',
+      id: '37'
+    },
+    {
+      href: '/37',
+      nameProject:
+        'Cash Balance Transactions',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/37/cash-balance-transactions.ts',
+      srcImage:
+        '/assets/projects/38.avif',
+      id: '38'
+    },
+    {
+      href: '/38',
+      nameProject: 'Cards',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/38/cards.ts',
+      srcImage:
+        '/assets/projects/39.avif',
+      id: '39'
+    },
+    {
+      href: '/39',
+      nameProject: 'Products',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/39/products.ts',
+      srcImage:
+        '/assets/projects/40.avif',
+      id: '40'
+    },
+  ] as const;
