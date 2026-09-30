@@ -414,4 +414,13 @@ export const arrayOfProjects: ItemProject[] =
         '/assets/projects/45.avif',
       id: '45'
     },
+    {
+      href: '/45',
+      nameProject: 'Tax Codes',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/45/tax-rates.ts',
+      srcImage:
+        '/assets/projects/46.avif',
+      id: '46'
+    },
   ] as const;
