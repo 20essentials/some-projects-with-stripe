@@ -1,6 +1,11 @@
-import { redirect } from 'next/navigation';
+import { HeroSection } from './hero-section';
+import { ListOfProjects } from './list-of-projects';
 
 export default function Home() {
-  redirect('/9');
-  return <></>;
+  return (
+    <>
+      <HeroSection />
+      <ListOfProjects />
+    </>
+  );
 }
