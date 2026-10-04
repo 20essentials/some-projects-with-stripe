@@ -15,21 +15,20 @@ export function HeroSection() {
       <HalftoneNebula params={SKY} className='font-sans'>
         <div className='flex h-full flex-col justify-between p-6 sm:p-10'>
           <div className='flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.32em] text-[#f6e2e8]/60'>
-            <span>sector 07 / crimson drift</span>
-            <span className='hidden sm:inline'>ra 04h 22m · dec −12°</span>
+            <span>stripe some projects</span>
+            <span className='hidden sm:inline'>stripe • projects</span>
           </div>
 
           <div className='max-w-xl'>
             <p className='mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.34em] text-[var(--color-primary)]'>
               <Sparkles className='size-3.5' aria-hidden />
-              transmission received
+              stripe experiments
             </p>
             <h1 className='text-5xl font-semibold leading-[0.95] tracking-tight text-[#f6e2e8] sm:text-7xl'>
               {TOTAL} Projects With Stripe
             </h1>
             <p className='mt-5 max-w-sm text-sm leading-relaxed text-[#f6e2e8]/60'>
-              A nebula printed one dot at a time. Move to light the gas — click anywhere to
-              hang a star of your own.
+              A collection of small projects built to practice with Stripe.
             </p>
             <div className='mt-8 flex flex-wrap items-center gap-4'>
               <Button
