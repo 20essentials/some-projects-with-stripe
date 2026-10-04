@@ -121,8 +121,8 @@ export const NEBULA_DEFAULTS: NebulaParams = {
   hazeColor: '#161a38',
   duskColor: '#3b1646',
   wineColor: '#5c0d31',
-  crimsonColor: '#c01245',
-  hotColor: '#ff1f5a',
+  crimsonColor: '#5046e5',
+  hotColor: '#635bff',
   starColor: '#f6e2e8'
 }
 
@@ -133,8 +133,8 @@ export const NEBULA_PRESETS: Record<string, Partial<NebulaParams>> = {
     hazeColor: '#10183f',
     duskColor: '#2a1a5e',
     wineColor: '#3d1478',
-    crimsonColor: '#7b2cf0',
-    hotColor: '#c77dff',
+    crimsonColor: '#5046e5',
+    hotColor: '#a5b4fc',
     starColor: '#eef0ff',
     bandAngle: 2.2,
     bandOffset: 0.3,
@@ -889,7 +889,7 @@ export default function HalftoneNebula({
           className='absolute inset-0'
           style={{
             background:
-              'radial-gradient(60% 45% at 12% 88%, #ff1f5a 0%, #c01245 22%, #5c0d31 50%, transparent 75%),' +
+              'radial-gradient(60% 45% at 12% 88%, #635bff 0%, #5046e5 22%, #312e81 50%, transparent 75%),' +
               'radial-gradient(45% 30% at 22% 22%, #5c0d31 0%, transparent 70%),' +
               'radial-gradient(40% 30% at 80% 30%, #3b1646 0%, transparent 70%),' +
               '#050309'

@@ -20,7 +20,7 @@ export function HeroSection() {
           </div>
 
           <div className='max-w-xl'>
-            <p className='mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.34em] text-[#ff1f5a]'>
+            <p className='mb-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.34em] text-[var(--color-primary)]'>
               <Sparkles className='size-3.5' aria-hidden />
               transmission received
             </p>
@@ -34,7 +34,7 @@ export function HeroSection() {
             <div className='mt-8 flex flex-wrap items-center gap-4'>
               <Button
                 asChild
-                className='pointer-events-auto rounded-none border border-[#ff1f5a] bg-[#ff1f5a]/10 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#f6e2e8] shadow-none hover:bg-[#ff1f5a] hover:text-[#050309] dark:bg-[#ff1f5a]/10 dark:hover:bg-[#ff1f5a] dark:hover:text-[#050309]'
+                className='pointer-events-auto rounded-none border border-[var(--color-primary)] bg-[var(--color-primary)]/10 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#f6e2e8] shadow-none hover:bg-[var(--color-primary)] hover:text-[#050309] dark:bg-[var(--color-primary)]/10 dark:hover:bg-[var(--color-primary)] dark:hover:text-[#050309]'
               >
                 <Link href={arrayOfProjects[0].href}>
                   Begin descent
