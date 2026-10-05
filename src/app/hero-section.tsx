@@ -12,7 +12,10 @@ const TOTAL = arrayOfProjects.length;
 export function HeroSection() {
   return (
     <div className='relative w-full'>
-      <HalftoneNebula params={SKY} className='font-sans'>
+      <HalftoneNebula
+        params={SKY}
+        className='fixed inset-0 -z-10 h-screen w-screen font-sans'
+      >
         <div className='flex h-full flex-col justify-between p-6 sm:p-10'>
           <div className='flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.32em] text-[#f6e2e8]/60'>
             <span>stripe some projects</span>
