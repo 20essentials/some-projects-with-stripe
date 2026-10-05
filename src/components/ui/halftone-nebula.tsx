@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { cn } from '@/lib/utils'
 
 /**
  * Halftone Nebula — a pixel-art night sky printed in dots.
@@ -548,8 +549,9 @@ export function driftPos(t: number) {
 
 export type HalftoneNebulaProps = {
   /**
-   * Explicit height. The canvas fills this box, so it must be a definite
-   * length — "100%" only works if every ancestor has one too.
+   * Explicit inline height, applied over the `h-screen` default. Leave it out
+   * to size the sky with a height utility on className instead ("h-full" when
+   * an absolutely positioned parent decides the box).
    */
   height?: string
   /** A named palette + layout, layered over the defaults. */
@@ -568,7 +570,7 @@ export type HalftoneNebulaProps = {
 }
 
 export default function HalftoneNebula({
-  height = '100svh',
+  height,
   preset = 'crimson',
   params,
   interactive = true,
@@ -874,13 +876,13 @@ export default function HalftoneNebula({
   return (
     <section
       ref={rootRef}
-      className={
-        'relative w-full overflow-hidden bg-[#050309] ' +
-        (interactive ? 'cursor-crosshair ' : '') +
-        (touch === 'draw' ? 'touch-none ' : 'touch-pan-y ') +
+      className={cn(
+        'relative h-screen w-full overflow-hidden bg-[#050309]',
+        interactive && 'cursor-crosshair',
+        touch === 'draw' ? 'touch-none' : 'touch-pan-y',
         className
-      }
-      style={{ height }}
+      )}
+      style={height ? { height } : undefined}
       aria-label='A pixel-art nebula printed in halftone dots'
     >
       {failed ? (
