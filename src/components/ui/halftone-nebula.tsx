@@ -711,9 +711,11 @@ export default function HalftoneNebula({
 
     const toUv = (e: PointerEvent): [number, number] => {
       const r = canvas.getBoundingClientRect()
+      // If canvas is not visible/has zero size, bail to center
+      if (r.width <= 0 || r.height <= 0) return [0.5, 0.5]
       return [
-        Math.min(Math.max((e.clientX - r.left) / Math.max(r.width, 1), 0), 1),
-        Math.min(Math.max(1 - (e.clientY - r.top) / Math.max(r.height, 1), 0), 1)
+        Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1),
+        Math.min(Math.max(1 - (e.clientY - r.top) / r.height, 0), 1)
       ]
     }
     const onMove = (e: PointerEvent) => {
@@ -751,10 +753,10 @@ export default function HalftoneNebula({
       if (reduced) paint()
     }
 
-    root.addEventListener('pointermove', onMove)
-    root.addEventListener('pointerdown', onDown)
-    root.addEventListener('pointerleave', onLeave)
-    root.addEventListener('pointercancel', onLeave)
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerdown', onDown)
+    window.addEventListener('pointerleave', onLeave)
+    window.addEventListener('pointercancel', onLeave)
 
     const onLost = (e: Event) => {
       e.preventDefault()
@@ -862,10 +864,10 @@ export default function HalftoneNebula({
       observer.disconnect()
       io.disconnect()
       document.removeEventListener('visibilitychange', wake)
-      root.removeEventListener('pointermove', onMove)
-      root.removeEventListener('pointerdown', onDown)
-      root.removeEventListener('pointerleave', onLeave)
-      root.removeEventListener('pointercancel', onLeave)
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerdown', onDown)
+      window.removeEventListener('pointerleave', onLeave)
+      window.removeEventListener('pointercancel', onLeave)
       canvas.removeEventListener('webglcontextlost', onLost)
       canvas.removeEventListener('webglcontextrestored', onRestored)
       gl.deleteVertexArray(vao)

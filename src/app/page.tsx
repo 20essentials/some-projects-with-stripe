@@ -13,7 +13,7 @@ export default function Home() {
     <div className='relative isolate'>
       <HalftoneNebula
         params={SKY}
-        className='fixed inset-0 -z-10 h-screen w-screen font-sans'
+        className='fixed inset-0 -z-10 h-screen w-screen font-sans pointer-events-none'
       ></HalftoneNebula>
       <HeroSection />
       <ListOfProjects />
