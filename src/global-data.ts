@@ -450,4 +450,13 @@ export const arrayOfProjects: ItemProject[] =
         '/assets/projects/49.avif',
       id: '49'
     },
+    {
+      href: '/49',
+      nameProject: 'Shared Payment Issued Token',
+      realHref:
+        'https://github.com/20essentials/some-projects-with-stripe/blob/main/src/app/49/shared-payment-issued-token.ts',
+      srcImage:
+        '/assets/projects/50.avif',
+      id: '50'
+    },
   ] as const;
